@@ -39,6 +39,7 @@ function filterSelection(c) {
     w3RemoveClass(x[i], "show");
     if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
   }
+
 }
 
 // Show filtered elements
@@ -87,6 +88,7 @@ async function loadItems() {
     } else {
       alph = true;
     }
+    generateList();
     filterSelection("all");
   });
   await generateList();
