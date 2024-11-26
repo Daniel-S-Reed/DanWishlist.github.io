@@ -5,10 +5,10 @@ function UpdateBackground() {
   console.log("test");
   var x = document.body;
   console.log("result" + new Date().getDay());
-  if (new Date().getDay() == 0) {
+  if (new Date().getDay() == 1) {
     x.style.backgroundImage = //good
       "Url('https://img.freepik.com/premium-vector/christmas-seamless-pattern-with-snowflakes_115464-32.jpg')";
-  } else if (new Date().getDay() == 1) {
+  } else if (new Date().getDay() == 0) {
     x.style.backgroundImage = //good
       "Url('https://static.vecteezy.com/system/resources/previews/019/188/037/non_2x/seamless-pattern-of-christmas-candy-cane-and-stars-on-green-background-festive-background-for-wrapping-paper-invitation-greeting-card-textile-vector.jpg')";
   } else if (new Date().getDay() == 2) {
