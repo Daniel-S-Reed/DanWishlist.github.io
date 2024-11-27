@@ -82,14 +82,16 @@ async function loadItems() {
     });
   }
   let checkbox = document.getElementById("checkbox");
-  checkbox.addEventListener("change", () => {
+  checkbox.addEventListener("change", async function () {
     if (alph == true) {
       alph = false;
     } else {
       alph = true;
     }
-    generateList();
-    filterSelection("all");
+    await generateList();
+    var current = document.getElementsByClassName("active");
+    
+    await filterSelection(curent[0].name());
   });
   await generateList();
   await filterSelection("all");
