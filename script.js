@@ -1,10 +1,10 @@
-const alph = true;
-const wishList = null;
-const filter = "all";
+let alph = true;
+let wishList = null;
+let filter = "all";
 
 function UpdateBackground() {
   console.log("test");
-  const x = document.body;
+  let x = document.body;
   console.log("result" + new Date().getDay());
   if (new Date().getDay() == 1) {
     x.style.backgroundImage = //good
@@ -80,12 +80,12 @@ async function loadItems() {
   UpdateBackground();
   await generateList();
   // Add active class to the current control button (highlight it)
-  const btnContainer = document.getElementById("myBtnContainer");
+  let btnContainer = document.getElementById("myBtnContainer");
   //console.log(btnContainer);
-  const btns = btnContainer.getElementsByClassName("btn");
-  for (const i = 0; i < btns.length; i++) {
+  let btns = btnContainer.getElementsByClassName("btn");
+  for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function () {
-      const current = document.getElementsByClassName("active");
+      let current = document.getElementsByClassName("active");
       active = current[0];
       this.className += " active";
       active.className = active.className.replace(" active", "");
@@ -121,14 +121,14 @@ function OrganizeList(wishList, method) {
   }
 }
 
-const spreadsheetId = "1vKmj_Z7NxkYnKkdaCFm3jdLKwNhvJuWe7IGW6iiDtlE";
+let spreadsheetId = "1vKmj_Z7NxkYnKkdaCFm3jdLKwNhvJuWe7IGW6iiDtlE";
 
-// Construct the URL for Google Sheets API v4
-const base = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?`;
+// letruct the URL for Google Sheets API v4
+let base = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?`;
 
-const sheetName = encodeURIComponent("Sheet1");
-const query = encodeURIComponent("select * ");
-const url = `${base}&sheet=${sheetName}&tq=${query}`;
+let sheetName = encodeURIComponent("Sheet1");
+let query = encodeURIComponent("select * ");
+let url = `${base}&sheet=${sheetName}&tq=${query}`;
 
 async function generateList() {
   let wishList;
@@ -147,7 +147,7 @@ async function generateList() {
     console.log("numerized!");
     console.log(wishList);
   }
-  const ReturnHTML = "";
+  let ReturnHTML = "";
   for (let x = 0; x < wishList.length; x++) {
     console.log(wishList[x].c);
     if (wishList[x].c[1].v == null) {
