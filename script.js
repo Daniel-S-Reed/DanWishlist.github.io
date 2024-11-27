@@ -30,16 +30,24 @@ function UpdateBackground() {
 }
 
 //filterSelection("all");
-function filterSelection(c) {
-  console.log("filtering" + c);
+function filterSelection() {
+  var c = document.getElementsByClassName("active");
+  console.log("filtering " + c[0].getAttribute("name"));
   var x, i;
   x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  if (c[0].getAttribute("name") == "all"){
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      w3AddClass(x[i], "show");
+    }
   }
+  else{
+    // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+``}
 
 }
 
@@ -67,7 +75,7 @@ function w3RemoveClass(element, name) {
   }
   element.className = arr1.join(" ");
 }
-
+var active;
 async function loadItems() {
   UpdateBackground();
   await generateList();
@@ -78,7 +86,8 @@ async function loadItems() {
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function () {
       var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
+      active = current[0];
+      active.className = active.className.replace(" active", "");
       this.className += " active";
     });
   }
@@ -89,13 +98,12 @@ async function loadItems() {
     } else {
       alph = true;
     }
-    var current = document.getElementsByClassName("active");
-    console.log(current[0].getAttribute("name"));
+    console.log(active.getAttribute("name"));
     await generateList();
-    await filterSelection(current[0].getAttribute("name"));
+    await filterSelection();
   });
   await generateList();
-  await filterSelection("all");
+  await filterSelection();
 }
 
 function OrganizeList(wishList, method) {
