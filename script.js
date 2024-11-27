@@ -91,7 +91,7 @@ async function loadItems() {
     await generateList();
     var current = document.getElementsByClassName("active");
     
-    await filterSelection(current[0].name());
+    await filterSelection(current[0].getAttribute("name"));
   });
   await generateList();
   await filterSelection("all");
