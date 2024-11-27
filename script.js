@@ -90,6 +90,7 @@ async function loadItems() {
       active = current[0];
       this.className += " active";
       active.className = active.className.replace(" active", "");
+      active = this;
     });
   }
   let checkbox = document.getElementById("checkbox");
