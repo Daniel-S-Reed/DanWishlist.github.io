@@ -88,9 +88,8 @@ async function loadItems() {
     } else {
       alph = true;
     }
-    await generateList();
     var current = document.getElementsByClassName("active");
-    
+    await generateList();
     await filterSelection(current[0].getAttribute("name"));
   });
   await generateList();
