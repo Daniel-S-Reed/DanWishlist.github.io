@@ -1,9 +1,10 @@
-var alph = true;
-var wishList = null;
+const alph = true;
+const wishList = null;
+const filter = "all";
 
 function UpdateBackground() {
   console.log("test");
-  var x = document.body;
+  const x = document.body;
   console.log("result" + new Date().getDay());
   if (new Date().getDay() == 1) {
     x.style.backgroundImage = //good
@@ -31,13 +32,10 @@ function UpdateBackground() {
 
 //filterSelection("all");
 function filterSelection() {
-  if(active == null)var x = document.getElementsByClassName("active");
-  active = x[0];
-  console.log(active);
-  console.log("filtering " + active.getAttribute("name"));
-  var x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (active.getAttribute("name") == "all"){
+  console.log(filter);
+  console.log("filtering " + filtering);
+  let x, i;
+  if (filter == "all"){
     for (i = 0; i < x.length; i++) {
       w3RemoveClass(x[i], "show");
       w3AddClass(x[i], "show");
@@ -47,7 +45,7 @@ function filterSelection() {
     // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
     for (i = 0; i < x.length; i++) {
       w3RemoveClass(x[i], "show");
-      if (x[i].className.indexOf(active.getAttribute("name")) > -1) w3AddClass(x[i], "show");
+      if (x[i].className.indexOf(filter) > -1) w3AddClass(x[i], "show");
     }
 ``}
 
@@ -55,7 +53,7 @@ function filterSelection() {
 
 // Show filtered elements
 function w3AddClass(element, name) {
-  var i, arr1, arr2;
+  let i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
   for (i = 0; i < arr2.length; i++) {
@@ -67,7 +65,7 @@ function w3AddClass(element, name) {
 
 // Hide elements that are not selected
 function w3RemoveClass(element, name) {
-  var i, arr1, arr2;
+  let i, arr1, arr2;
   arr1 = element.className.split(" ");
   arr2 = name.split(" ");
   for (i = 0; i < arr2.length; i++) {
@@ -77,21 +75,23 @@ function w3RemoveClass(element, name) {
   }
   element.className = arr1.join(" ");
 }
-var active;
+let active;
 async function loadItems() {
   UpdateBackground();
   await generateList();
   // Add active class to the current control button (highlight it)
-  var btnContainer = document.getElementById("myBtnContainer");
+  const btnContainer = document.getElementById("myBtnContainer");
   //console.log(btnContainer);
-  var btns = btnContainer.getElementsByClassName("btn");
-  for (var i = 0; i < btns.length; i++) {
+  const btns = btnContainer.getElementsByClassName("btn");
+  for (const i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function () {
-      var current = document.getElementsByClassName("active");
+      const current = document.getElementsByClassName("active");
       active = current[0];
       this.className += " active";
       active.className = active.className.replace(" active", "");
       active = this;
+      filter = this.getAttribute("name");
+      filterSelection();
     });
   }
   let checkbox = document.getElementById("checkbox");
@@ -101,7 +101,6 @@ async function loadItems() {
     } else {
       alph = true;
     }
-    console.log(active.getAttribute("name"));
     await generateList();
     await filterSelection();
   });
@@ -132,8 +131,8 @@ const query = encodeURIComponent("select * ");
 const url = `${base}&sheet=${sheetName}&tq=${query}`;
 
 async function generateList() {
-  var wishList;
-  var resp = "";
+  let wishList;
+  const resp = "";
   const res = await fetch(url);
   resp = await res.text();
   wishList = await JSON.parse(resp.substring(47).slice(0, -2)).table.rows;
@@ -148,7 +147,7 @@ async function generateList() {
     console.log("numerized!");
     console.log(wishList);
   }
-  var ReturnHTML = "";
+  const ReturnHTML = "";
   for (let x = 0; x < wishList.length; x++) {
     console.log(wishList[x].c);
     if (wishList[x].c[1].v == null) {
