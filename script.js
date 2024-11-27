@@ -88,8 +88,8 @@ async function loadItems() {
     btns[i].addEventListener("click", function () {
       var current = document.getElementsByClassName("active");
       active = current[0];
-      active.className = active.className.replace(" active", "");
       this.className += " active";
+      active.className = active.className.replace(" active", "");
     });
   }
   let checkbox = document.getElementById("checkbox");
