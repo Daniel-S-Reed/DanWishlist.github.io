@@ -31,6 +31,7 @@ function UpdateBackground() {
 
 //filterSelection("all");
 function filterSelection(c) {
+  console.log("filtering");
   var x, i;
   x = document.getElementsByClassName("filterDiv");
   if (c == "all") c = "";
@@ -89,6 +90,7 @@ async function loadItems() {
       alph = true;
     }
     var current = document.getElementsByClassName("active");
+    console.log(current[0].getAttribute("name"));
     await generateList();
     await filterSelection(current[0].getAttribute("name"));
   });
