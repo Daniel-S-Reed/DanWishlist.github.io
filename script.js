@@ -91,7 +91,7 @@ async function loadItems() {
       this.className += " active";
       active.className = active.className.replace(" active", "");
       active = this;
-      filter = this.getAttribute("name");
+      filter = this.getAttribute("id");
       filterSelection();
     });
   }
