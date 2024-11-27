@@ -35,6 +35,7 @@ function filterSelection() {
   console.log(filter);
   console.log("filtering " + filter);
   let x, i;
+  x = document.getElementsByClassName("filterDiv");
   if (filter == "all"){
     for (i = 0; i < x.length; i++) {
       w3RemoveClass(x[i], "show");
