@@ -32,11 +32,11 @@ function UpdateBackground() {
 //filterSelection("all");
 function filterSelection() {
   var c = document.getElementsByClassName("active");
-  console.log(c);
-  console.log("filtering " + c[0].getAttribute("name"));
+  console.log(active);
+  console.log("filtering " + active.getAttribute("name"));
   var x, i;
   x = document.getElementsByClassName("filterDiv");
-  if (c[0].getAttribute("name") == "all"){
+  if (active.getAttribute("name") == "all"){
     for (i = 0; i < x.length; i++) {
       w3RemoveClass(x[i], "show");
       w3AddClass(x[i], "show");
@@ -46,7 +46,7 @@ function filterSelection() {
     // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
     for (i = 0; i < x.length; i++) {
       w3RemoveClass(x[i], "show");
-      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+      if (x[i].className.indexOf(active.getAttribute("name")) > -1) w3AddClass(x[i], "show");
     }
 ``}
 
