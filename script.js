@@ -33,7 +33,7 @@ function UpdateBackground() {
 //filterSelection("all");
 function filterSelection() {
   console.log(filter);
-  console.log("filtering " + filtering);
+  console.log("filtering " + filter);
   let x, i;
   if (filter == "all"){
     for (i = 0; i < x.length; i++) {
