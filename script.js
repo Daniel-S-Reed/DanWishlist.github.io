@@ -31,7 +31,8 @@ function UpdateBackground() {
 
 //filterSelection("all");
 function filterSelection() {
-  if(active == null)var active = document.getElementsByClassName("active");
+  if(active == null)var x = document.getElementsByClassName("active");
+  active = x[0];
   console.log(active);
   console.log("filtering " + active.getAttribute("name"));
   var x, i;
