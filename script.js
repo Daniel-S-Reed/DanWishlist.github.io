@@ -132,7 +132,7 @@ const url = `${base}&sheet=${sheetName}&tq=${query}`;
 
 async function generateList() {
   let wishList;
-  const resp = "";
+  let resp = "";
   let res = await fetch(url);
   resp = await res.text();
   wishList = await JSON.parse(resp.substring(47).slice(0, -2)).table.rows;
