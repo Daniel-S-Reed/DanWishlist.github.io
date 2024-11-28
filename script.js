@@ -116,8 +116,19 @@ function OrganizeList(wishList, method) {
     });
   } else if (method == "Numerical") {
     wishList.sort(function (a, b) {
-      console.log(a.c[3].v);
-      return a.c[3].v - b.c[3].v;
+      var x,y;
+      if(a.c[3] == null){
+        x=0;
+      }
+      else{
+        x=a.c[3].v;
+      }
+      if(b.c[3] == null){
+        y=0;
+      }else{
+        y=b.c[3].v;
+      }
+      return x - y;
     });
   }
 }
