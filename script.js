@@ -151,7 +151,7 @@ async function generateList() {
   let ReturnHTML = "";
   for (let x = 0; x < wishList.length; x++) {
     console.log(wishList[x].c);
-    if (wishList[x].c[1].v == null) {
+    if (wishList[x].c[1] == null) {
       ReturnHTML +=
         "<div class = 'filterDiv " +
         wishList[x].c[4].v +
