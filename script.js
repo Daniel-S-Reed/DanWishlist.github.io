@@ -6,7 +6,7 @@ function UpdateBackground() {
   console.log("test");
   let x = document.body;
   console.log("result" + new Date().getDay());
-  if (new Date().getMonth() == 12){
+  if (new Date().getMonth() == 7){
   if (new Date().getDay() == 1) {
     x.style.backgroundImage = //good
       "Url('https://img.freepik.com/premium-vector/christmas-seamless-pattern-with-snowflakes_115464-32.jpg')";
