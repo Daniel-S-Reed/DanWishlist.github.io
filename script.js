@@ -6,6 +6,7 @@ function UpdateBackground() {
   console.log("test");
   let x = document.body;
   console.log("result" + new Date().getDay());
+  if (new Date().getMonth() == 12){
   if (new Date().getDay() == 1) {
     x.style.backgroundImage = //good
       "Url('https://img.freepik.com/premium-vector/christmas-seamless-pattern-with-snowflakes_115464-32.jpg')";
@@ -27,6 +28,7 @@ function UpdateBackground() {
   } else if (new Date().getDay() == 6) {
     x.style.backgroundImage = //good
       "Url('https://img.freepik.com/premium-photo/christmas-seamless-pattern-infinite-digital-paper-generative-ai_836477-28995.jpg')";
+  }
   }
 }
 
